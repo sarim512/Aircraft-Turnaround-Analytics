@@ -1,0 +1,11 @@
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+scikit-learn>=1.4
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=6.1
+kaleido>=1.0
+nbformat>=5.9
+pyarrow>=14
+requests>=2.31

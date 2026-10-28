@@ -1,0 +1,9 @@
+[project]
+name = "aircraft-turnaround-analytics"
+version = "1.0.0"
+description = "Reconstruction, statistical analysis and delay prediction for 5M+ US aircraft turnarounds (BTS 2024)."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

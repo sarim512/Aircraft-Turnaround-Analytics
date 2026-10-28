@@ -1,0 +1,23 @@
+# Data (downloaded / generated -- reproducible from the notebook)
+data/raw/
+data/external/
+data/processed/
+*.zip
+*.parquet
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

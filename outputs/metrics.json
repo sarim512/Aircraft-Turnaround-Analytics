@@ -1,0 +1,83 @@
+{
+  "flights_raw": 7079061,
+  "turnarounds": 5184074,
+  "airlines": 15,
+  "airports": 344,
+  "aircraft": 6097,
+  "naive_events": 5354020,
+  "naive_aliased": 30404,
+  "naive_delayed_rate": 0.6589637319247967,
+  "delayed_rate": 0.08892947901592455,
+  "median_tat": 63.0,
+  "mean_tat": 77.81979370117188,
+  "median_sched_tat": 56.0,
+  "best_distribution": "Log-normal mixture (k=2)",
+  "lognormal_dAIC": 33922.82421272807,
+  "best_ks": 0.018686886086746624,
+  "kl_hub_regional": 0.8428430219704836,
+  "kl_regional_hub": 0.9507736297806306,
+  "js_hub_regional": 0.4464231859163185,
+  "most_unpredictable_airline": "UA",
+  "most_consistent_airline": "G4",
+  "design_effect_tat_median": 9.561604552556581,
+  "design_effect_rate_median": 2.303327527104528,
+  "airport_clusters": 2,
+  "pca_var_3pc": 0.7775766023659443,
+  "models": {
+    "Calendar": {
+      "roc_auc": 0.6529,
+      "pr_auc": 0.1585,
+      "brier": 0.0799,
+      "base_rate": 0.0902,
+      "Features": 5,
+      "Precision_at_alert": 0.1971,
+      "Recall_at_alert": 0.2008,
+      "Train_seconds": 99.8
+    },
+    "Schedule": {
+      "roc_auc": 0.6904,
+      "pr_auc": 0.2442,
+      "brier": 0.0762,
+      "base_rate": 0.0902,
+      "Features": 9,
+      "Precision_at_alert": 0.2641,
+      "Recall_at_alert": 0.2627,
+      "Train_seconds": 126.0
+    },
+    "Real-time": {
+      "roc_auc": 0.7101,
+      "pr_auc": 0.2759,
+      "brier": 0.0745,
+      "base_rate": 0.0902,
+      "Features": 10,
+      "Precision_at_alert": 0.2866,
+      "Recall_at_alert": 0.2828,
+      "Train_seconds": 135.0
+    }
+  },
+  "top_drivers_schedule": [
+    "Airport",
+    "Planned ground time",
+    "Airline"
+  ],
+  "top_drivers_realtime": [
+    "Planned ground time",
+    "Airport",
+    "Airline"
+  ],
+  "surprise_share_of_delays": 0.06501804287836978,
+  "cleared_share_of_alerts": 0.2885007309083537,
+  "riskiest_window": "Sun 22:00 (13.7%, n=26,328)",
+  "safest_window": "Mon 05:00 (4.3%, n=12,746)",
+  "peak_month": "Jul",
+  "peak_month_rate": 0.12598082237723252,
+  "low_month": "Oct",
+  "low_month_rate": 0.05910369030233014,
+  "riskiest_airports": [
+    "BWI",
+    "FLL",
+    "MCO",
+    "MIA",
+    "MDW"
+  ]
+}
