@@ -2,7 +2,7 @@
 
 # ✈️ Aircraft Turnaround Analytics
 
-**Reconstructing, modeling and predicting 5M+ aircraft turnarounds across the US domestic network (BTS 2024)**
+**Constructing, modeling and predicting 5M+ aircraft turnarounds across the US domestic network (BTS 2024)**
 
 <!--[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-HistGradientBoosting-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
@@ -24,7 +24,7 @@
 
 A **turnaround** is everything that happens between an aircraft landing and its next departure: deboarding, cleaning, catering, fuelling, boarding. Ground time is where airlines have the most control over delays, and where one late turn spreads through an aircraft's rotation for the rest of the day.
 
-Public flight data doesn't record turnarounds directly. This project **reconstructs every turnaround in 2024** from the US Bureau of Transportation Statistics on-time dataset by linking consecutive flights of the same airframe (tail number). It then answers three questions:
+Public flight data doesn't record turnarounds directly. This project **constructs every turnaround in 2024** from the US Bureau of Transportation Statistics on-time dataset by linking consecutive flights of the same airframe (tail number). It then answers three questions:
 
 1. **How are turnaround times distributed, and how predictable are they** across airlines and airports?
 2. **Which turnarounds will generate a departure delay**, and how much does each layer of operational information add (calendar → published schedule → live inbound status)?
@@ -37,10 +37,8 @@ Public flight data doesn't record turnarounds directly. This project **reconstru
 | Metric | Value |
 |---|---|
 | Flights analysed | 7,079,061 |
-| Turnarounds reconstructed | 5,184,074 (6,097 aircraft, 15 airlines, 344 airports) |
+| Turnarounds Constructed | 5,184,074 (6,097 aircraft, 15 airlines, 344 airports) |
 | Median actual / planned ground time | 63 min / 56 min |
-| Delay-generating turnarounds | 8.9% (naive 'actual > planned' label: 65.9%) |
-| Multi-day gaps a naive clock-modulo method mistakes for turnarounds | 30,404 |
 | Best-fitting distribution | Log-normal mixture (k=2) (KS = 0.019) |
 | KL divergence, hubs vs regional | 0.84 bits (JS distance 0.45) |
 | Median design effect (aircraft clustering) | 9.6× for mean ground time, 2.3× for delay rate |
@@ -54,7 +52,6 @@ Public flight data doesn't record turnarounds directly. This project **reconstru
 <!-- ✍️ After running, replace every `X` below with your numbers (outputs/key_results.md, outputs/metrics.json, outputs/*.csv) and adjust any wording your results don't support. -->
 **Findings**
 
-- **Most "late turnarounds" in a naive analysis aren't delays.** Labelling a turn as delayed whenever it ran longer than planned flags `65.9%` of events, mostly aircraft that landed early and waited for their slot. Only `8.9%` actually generated a late departure.
 - **Ground time is multimodal.** The best fit is `2` (ΔAIC ≈ `33923` ahead of a single log-normal), which points to separate regional quick-turn and mainline turn regimes.
 - **Value of information.** ROC-AUC goes from `0.653` (calendar) to `0.690` (schedule) to `0.710` (real-time). The strongest driver is `Planned ground time`.
 - **Clustering matters for uncertainty.** Treating turnarounds as independent understates variance by a median factor of `9.6` (design effect).
